@@ -2,6 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::get('/clear-cache', function () {
+    try {
+        $exitCode = Artisan::call('cache:clear');
+        $exitCode = Artisan::call('config:cache');
+        return 'DONE'; //Return anything
+    } catch (Throwable $th) {
+        //throw $th;
+    }
+});
+
 
 Route::get('/welcome', function () {
     return view('welcome');
