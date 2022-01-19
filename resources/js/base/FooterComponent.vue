@@ -51,17 +51,6 @@
                         <div class="d-flex mb-2">
                             <v-icon
                                 class="secondary--text text--lighten-1 mr-1">
-                                mdi-phone-outline
-                            </v-icon>
-                            <a
-                                href="tel:+57 300 290 0321"
-                                class="text-decoration-none secondary--text text--lighten-2">
-                                +57 300 290 0321
-                            </a>
-                        </div>
-                        <div class="d-flex mb-2">
-                            <v-icon
-                                class="secondary--text text--lighten-1 mr-1">
                                 mdi-email-outline
                             </v-icon>
                             <a

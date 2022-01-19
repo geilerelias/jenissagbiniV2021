@@ -177,22 +177,6 @@
                                             </p>
                                         </v-col>
                                     </v-row>
-                                    <v-row
-                                        style="height:100px"
-                                        no-gutters
-                                        align="center"
-                                        class="ma-0 pa-0"
-                                    >
-                                        <v-col class="text-left">
-                                            <p>
-                                                <v-icon class="mr-3" size="44"
-                                                >mdi-phone
-                                                </v-icon
-                                                >
-                                                +57 300 290 0321
-                                            </p>
-                                        </v-col>
-                                    </v-row>
                                 </v-container>
                             </v-col>
                         </v-row>
