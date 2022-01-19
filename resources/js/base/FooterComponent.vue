@@ -5,10 +5,12 @@
             <v-container class="py-5">
                 <v-row>
                     <v-col class="col-md-4 col-12">
-                        <div class="text-h6 text-lg-h5 font-weight-bold">Jenis Sagbini</div>
-                        <div class="mb-5 mt-1 secondary" style="width: 80px; height: 4px;"></div>
+                        <div class="text-h6 text-lg-h5 font-weight-bold">
+                            Jenis Sagbini
+                        </div>
+                        <div class="mb-5 mt-1 secondary" style="width: 160px; height: 4px;"></div>
                         <div class="text-body-1 secondary--text ">
-                            <div>¡Haciendo a la Gente Exitosa en un mundo cambiante!.</div>
+                            <div>¡Haciendo a la Gente Exitosa en un mundo cambiante!</div>
                             <div class="mt-2">
                                 <v-btn
                                     v-for="item in redesSociales" :key="item.id" :href="item.route" target="_blank"
@@ -23,7 +25,7 @@
                     </v-col>
                     <div class="col-md-4 col-12">
                         <div class="text-h6 text-lg-h5 font-weight-bold">Servicios</div>
-                        <div class="mb-5 mt-1 secondary" style="width: 80px; height: 4px;"></div>
+                        <div class="mb-5 mt-1 secondary" style="width: 110px; height: 4px;"></div>
                         <div class="d-flex flex-wrap">
                             <div class="w-half body-1 mb-1" v-for="item in services" :key="item.id">
                                 <inertia-link :href="item.route"
@@ -34,8 +36,8 @@
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
-                        <div class="text-h6 text-lg-h5 font-weight-bold">Informacion de contacto</div>
-                        <div class="mb-5 mt-1 secondary" style="width: 80px; height: 4px;"></div>
+                        <div class="text-h6 text-lg-h5 font-weight-bold">Información de contacto</div>
+                        <div class="mb-5 mt-1 secondary" style="width: 285px; height: 4px;"></div>
                         <div class="d-flex mb-2 font-weight-bold">
                             <v-icon
                                 class="secondary--text text--lighten-1 mr-1">
@@ -66,7 +68,6 @@
                                 href="mailto:contacto@jenissagbini.com"
                                 class="text-decoration-none secondary--text text--lighten-2">
                                 contacto@jenissagbini.com
-
                             </a>
                         </div>
                     </div>

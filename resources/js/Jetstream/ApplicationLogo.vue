@@ -1,3 +1,3 @@
 <template>
-    <img src="{{mix('img/logo.png')}}" alt="logo">
+    <img src="" alt="logo">
 </template>
