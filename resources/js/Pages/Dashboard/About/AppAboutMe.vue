@@ -66,6 +66,7 @@
                                         <v-card-title></v-card-title>
                                         <v-row align="center" justify="center">
                                             <v-col cols="12" sm="8" md="4">
+                                                {{ item.image }}
                                                 <v-card class="elevation-12">
                                                     <v-img
                                                         height="300px"
@@ -157,6 +158,7 @@ export default {
             viewAll: false,
             name: "01-example",
             content: "",
+            changedImage: false,
             items: [
                 {
                     text: "Dashboard",
@@ -294,16 +296,23 @@ export default {
         },
 
         initialize() {
+            console.log('for each')
+            this.data.forEach(function (item) {
+                item.image = '/storage/' + item.image
+                console.log(item.image)
+            });
         },
         onFileChange(item) {
+            this.changedImage = true;
             var element = document.getElementById(`imagen${item.id}`);
             var e = element.files[0];
             console.log(e);
             const editedIndex = this.data.indexOf(item);
             let editedItem = Object.assign({}, item);
             editedItem.image = window.URL.createObjectURL(e);
-            Object.assign(this.items[editedIndex], editedItem);
-            console.log(this.items);
+
+            Object.assign(this.data[editedIndex], editedItem);
+            console.log(this.data);
         }
     },
     watch: {
