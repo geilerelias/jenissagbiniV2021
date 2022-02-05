@@ -170,6 +170,9 @@
                             áreas… ¡Tenemos mucho trabajo por hacer, tenemos que
                             descubrirnos, Somos Grandes!
                         </p>
+                        <p>
+                            Soy Jenis y deseo darte la bienvenida a este espacio de experiencias y proyectos.
+                        </p>
                     </v-container>
                 </v-card-text>
             </v-card>
