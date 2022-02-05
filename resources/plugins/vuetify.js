@@ -16,7 +16,7 @@ const opts = {
                 accent: '#212121',
                 error: '#f44336',
                 warning: '#ff9800',
-                info: '#00bcd4',
+                info: '#1e88e5',
                 success: '#4caf50',
             },
             dark: {
@@ -25,7 +25,7 @@ const opts = {
                 accent: '#212121',
                 error: '#f44336',
                 warning: '#ff9800',
-                info: '#00bcd4',
+                info: '#1e88e5',
                 success: '#4caf50',
             },
         },

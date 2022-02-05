@@ -98,14 +98,14 @@
 
                                             <v-text-field
                                                 clearable
-                                                v-model="mail.theme"
+                                                v-model="mail.subject"
                                                 :rules="themeRules"
                                                 :counter="50"
-                                                label="Tema"
+                                                label="Asunto"
                                                 required
                                             ></v-text-field>
                                             <v-textarea
-                                                v-model="mail.message"
+                                                v-model="mail.content"
                                                 :rules="messageRules"
                                                 clearable
                                                 label="Tu mensaje"
@@ -220,7 +220,7 @@ export default {
         overlay: false,
         snackbar: false,
         response: "",
-        mail: {name: "", email: "", theme: "", message: ""},
+        mail: {name: "", email: "", subject: "", content: ""},
         valid: true,
         nameRules: [
             v => !!v || "El nombre es requerido",
@@ -229,12 +229,12 @@ export default {
                 "El nombre no puede tener mas de 30 caracteres"
         ],
         themeRules: [
-            v => !!v || "El tema es requerido",
+            v => !!v || "El asunto es requerido",
             v =>
                 (v && v.length <= 50) ||
-                "El tema no puede tener mas de 50 caracteres"
+                "El asunto no puede tener mas de 50 caracteres"
         ],
-        messageRules: [v => !!v || "El mensaje es requerido"],
+        messageRules: [v => !!v || "El contenido del mensaje es requerido"],
         emailRules: [
             v => !!v || "E-mail es requerido",
             v => /.+@.+\..+/.test(v) || "E-mail invalido"
@@ -249,10 +249,10 @@ export default {
             this.overlay = true;
             const newMail = this.mail;
             axios
-                .post("/api/contacto", newMail)
+                .post("/send-mail", newMail)
                 .then(res => {
                     this.overlay = false;
-                    Swal.fire(
+                    this.$swal(
                         "Mensaje enviado!",
                         "Mensaje enviado correctamente 😀",
                         "success"
@@ -260,7 +260,7 @@ export default {
                     this.reset();
                 })
                 .catch(res => {
-                    Swal.fire(
+                    this.$swal(
                         "Error en el envío",
                         "ha ocurrido un error en el envío del mensaje 😥",
                         "error"

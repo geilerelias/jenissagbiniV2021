@@ -100,13 +100,10 @@
                     <v-container class="pb-0">
                         <p class="text-justify black--text body-1">
                             <b></b>
-                            Cuando era adolescente leía muchos libros
-                            filosóficos que me hacían pensar y novelas que me
-                            hacían soñar, ¡me encantaba! Usaba una libreta donde
-                            anotaba todas las frases que me llamaban la
-                            atención, a veces escribía su autor y otras veces
-                            no… y es así, que de esta libreta, quiero compartir
-                            dos frases que marcaron mi vida:
+                            Cuando era adolescente leía muchos libros filosóficos que me hacían pensar y novelas que me
+                            hacían soñar. Me encantaba usaba una libreta donde anotaba todas las frases que me llamaban
+                            la atención a veces escribía su autor y otras veces no…y es así, que quiero compartir dos
+                            frases que marcaron mi vida:
                         </p>
                         <v-row>
                             <v-col cols="12" md="10">
@@ -382,8 +379,8 @@ export default {
         loading: true,
         loaded: false,
         lazzy: lazzy,
-        img15:img15,
-        personaLeyendo:personaLeyendo,
+        img15: img15,
+        personaLeyendo: personaLeyendo,
         newArray: [],
         icons: [
             {
@@ -419,9 +416,6 @@ export default {
                 console.log("carga completa de la pagina");
             }
         };
-
-        setTimeout(() => this.loading, 10000);
-
         document.addEventListener("readystatechange", readyHandler);
 
         readyHandler(); // in case the component has been instantiated lately after loading
@@ -465,7 +459,7 @@ export default {
             return document.documentElement.clientHeight - 100;
         },
         initialize() {
-            axios.get("/api/notices/all").then(res => {
+            axios.get("/notices/all").then(res => {
                 this.notices = res.data;
                 //this.notices = aux;
                 //console.log("notices:", this.notices);

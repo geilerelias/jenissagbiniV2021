@@ -35,21 +35,23 @@
 
             <v-toolbar-items v-if="$vuetify.breakpoint.mdAndUp">
                 <nav class="d-flex justify-end text-end align-center">
-                    <inertia-link v-for="item in routes" :key="item.name" :href="route(item.link)">
+                    <inertia-link v-for="item in links" :key="item.name" :href="route(item.route)">
                         <a
                             class="white--text subtitle-2 text-uppercase link mx-1"
-                            :class="{ 'active': route().current(item.link) }"
+                            :class="{ 'active': route().current(item.route) }"
                         >
-                            {{ item.name }}
+                            {{ item.title }}
                         </a>
                     </inertia-link>
                 </nav>
             </v-toolbar-items>
 
+
             <template v-else>
                 {{ route().current() }}
             </template>
             <v-menu
+                v-if="$page.user==null"
                 bottom
                 transition="scale-transition"
                 :offset-y="true"
@@ -60,6 +62,9 @@
                         <v-icon>mdi-dots-horizontal-circle-outline</v-icon>
                     </v-btn>
                 </template>
+                <div v-if="$page.user!==null" class="text-center">
+
+                </div>
 
                 <v-list>
                     <v-subheader>Opciones</v-subheader>
@@ -128,6 +133,7 @@
                     </v-list-item-group>
                 </v-list>
             </v-menu>
+            <settings-dropdown class="ml-2"></settings-dropdown>
         </v-app-bar>
 
         <v-btn
@@ -146,7 +152,14 @@
 </template>
 
 <script>
+import {mapState} from "vuex";
+import SettingsDropdown from "@/components/SettingsDropdown";
+
+
 export default {
+    components: {
+        SettingsDropdown,
+    },
     data() {
         return {
             fab: false,
@@ -155,17 +168,10 @@ export default {
             item: 1,
             authenticated: null,
             user: null,
-            routes: [
-                {name: 'Inicio', link: 'inicio'},
-                {name: '¿Quien soy?', link: 'quienSoy'},
-                {name: 'Proyectos', link: 'proyectos'},
-                {name: 'Articulos', link: 'articulo'},
-                {name: 'Servicios', link: 'servicios'},
-                {name: 'Contacto', link: 'contacto'},
-            ]
         };
     },
     computed: {
+        ...mapState(["links", "linksWithAuth"]),
         desplazamiento() {
             return document.documentElement.clientHeight - 100;
         },

@@ -13,18 +13,46 @@ import PortalVue from 'portal-vue';
 
 import {InertiaProgress} from '@inertiajs/progress'
 import store from "./store";
-import VueSweetalert2 from 'vue-sweetalert2';
 
-// If you don't need the styles, do not connect
-import 'sweetalert2/dist/sweetalert2.min.css';
 import VAnimateCss from 'v-animate-css';
 
 Vue.use(VAnimateCss);
-Vue.use(VueSweetalert2);
+
+
 Vue.mixin({methods: {route}});
 Vue.use(InertiaApp);
 Vue.use(InertiaForm);
 Vue.use(PortalVue);
+
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
+
+Vue.use(VueSweetalert2);
+
+import PerfectScrollbar from 'vue2-perfect-scrollbar'
+import 'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
+
+Vue.use(PerfectScrollbar)
+
+import VueGates from 'vue-gates';
+
+Vue.use(VueGates);
+
+//Plugins Permissions
+import Permissions from '../Plugins/Permissions';
+
+Vue.use(Permissions);
+
+
+//Vue Quill Editor
+import VueQuillEditor from "vue-quill-editor";
+
+Vue.use(VueQuillEditor /* { default global options } */);
+
+//vue2 editor
+import Vue2Editor from "vue2-editor";
+
+Vue.use(Vue2Editor);
 
 const app = document.getElementById('app');
 

@@ -185,7 +185,7 @@ export default {
         }
     },
     created() {
-        axios.get("/api/about/all").then(res => {
+        axios.get("/about/all").then(res => {
             this.items = res.data;
             //console.log(this.items);
         });

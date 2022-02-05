@@ -1,5 +1,5 @@
 <template>
-    <v-navigation-drawer nav height="105vh" v-model="drawer" class="text-start py-12" app temporary>
+    <v-navigation-drawer nav v-model="drawer" class="text-start py-12" app temporary>
         <v-list-item>
             <v-list-item-avatar>
                 <!--                <v-img :src="require('@/../img/15.jpg')"></v-img>-->
@@ -18,10 +18,20 @@
 
         <v-divider></v-divider>
 
-        <v-list dense>
-            <v-list-item-group v-model="item" active-class="primary text--accent-4">
-                <inertia-link v-for="(item, index) in items" :key="index" link :href="item.link">
-                    <v-list-item :class="route().current(item.link)?'active primary  white--text':''">
+        <v-list dense shaped>
+
+            <v-list-item-group
+                v-model="group"
+                color="primary"
+            >
+                <inertia-link v-for="item in links" :key="item.id"
+                              :href="route(item.route)"
+                              v-permission="item.can">
+                    <v-list-item
+                        :dark="route().current(item.route)"
+                        class="mb-2"
+                        :class="route().current(item.route)?'active primary  white--text':''"
+                    >
                         <v-list-item-icon>
                             <v-icon v-text="item.icon"></v-icon>
                         </v-list-item-icon>
@@ -33,34 +43,22 @@
                 </inertia-link>
             </v-list-item-group>
         </v-list>
+
     </v-navigation-drawer>
 </template>
 
 <script>
+import {mapMutations, mapState} from "vuex";
+
 export default {
     data() {
         return {
+            group: null,
             item: parseInt(this.pagina),
-            items: [
-                {link: "/", icon: "mdi-home", title: "Inicio"},
-                {
-                    link: "/quienSoy",
-                    icon: "mdi-account-question",
-                    title: "¿Quien soy?"
-                },
-
-                {link: "/proyectos", icon: "mdi-file-tree", title: "Proyectos"},
-                {link: "/articulo", icon: "mdi-card-text", title: "Artículos"},
-                {link: "/servicios", icon: "mdi-face-agent", title: "Servicios"},
-                {
-                    link: "/contacto",
-                    icon: "mdi-card-account-mail",
-                    title: "Contacto"
-                }
-            ]
         };
     },
     computed: {
+        ...mapState(["drawer", "links", "linksWithAuth"]),
         drawer: {
             get() {
                 return this.$store.state.drawer;

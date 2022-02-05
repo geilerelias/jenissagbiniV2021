@@ -1,6 +1,5 @@
 <template>
     <div>
-
         <v-footer dark>
             <v-container class="py-5">
                 <v-row>
@@ -20,6 +19,9 @@
                                     class="mr-1 secondary--text text--lighten-2">
                                     <v-icon v-text="item.icon"></v-icon>
                                 </v-btn>
+                                <whatsapp-message-button
+                                    class="mr-1 secondary--text text--lighten-2">
+                                </whatsapp-message-button>
                             </div>
                         </div>
                     </v-col>
@@ -72,8 +74,13 @@
 </template>
 
 <script>
+import WhatsappMessageButton from '@/components/WhatsappMessageButton'
+
 export default {
     name: "footeer-component",
+    components: {
+        WhatsappMessageButton
+    },
     data() {
         return {
             absolute: true,
@@ -98,11 +105,11 @@ export default {
                     icon: 'mdi-instagram',
                     route: 'https://www.instagram.com/jenis_sagbini/'
                 },
-                {
-                    name: 'whatsapp',
-                    icon: 'mdi-whatsapp',
-                    route: 'https://api.whatsapp.com/send?phone=573002900321'
-                },
+                // {
+                //     name: 'whatsapp',
+                //     icon: 'mdi-whatsapp',
+                //     route: 'https://api.whatsapp.com/send?phone=573002900321'
+                // },
             ],
             services: [
                 {name: 'Desarrollo Web', src: '', route: ''},

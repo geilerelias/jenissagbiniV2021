@@ -1,16 +1,24 @@
 <template>
-    <input class="form-input rounded-md shadow-sm" :value="value" @input="$emit('input', $event.target.value)" ref="input">
+    <v-text-field
+        v-model="text"
+        outlined :type="type" :value="value" @input="$emit('input', text)"
+        ref="input"/>
 </template>
 
 <script>
-    export default {
-        props: ['value'],
-
-        methods: {
-            focus() {
-                this.$refs.input.focus()
-            }
+export default {
+    props: ['value', 'type'],
+    data: () => ({
+        text: ''
+    }),
+    mounted() {
+        this.text = this.value
+    },
+    methods: {
+        focus() {
+            this.$refs.input.focus()
         }
     }
+}
 </script>
 
